@@ -9,9 +9,7 @@ const create = async function(req, res){
         return resError(res, 'Please enter an email or phone number to register.');
     } else if(!body.password){
         return resError(res, 'Please enter a password to register.');
-    }else if(body.type != "Business"){
-        return resError(res, 'Invalid user type');
-    }else if(body.type != "Product"){
+    } else if(body.type != "Business" && body.type != "Product"){
         return resError(res, 'Invalid user type');
     } else {
         let err, user;
@@ -54,7 +52,7 @@ const remove = async function(req, res){
     [err, user] = await to(user.destroy());
     if(err) return resError(res, 'error occured trying to delete user');
 
-    return resSuccess(res, {message:'Deleted User'}, 204);
+    return resSuccess(res, {message:'Deleted User'});
 }
 module.exports.remove = remove;
 
