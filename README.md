@@ -3,9 +3,8 @@
 ## Description
 Sample Test API
 
-##### Routing         : Express
-##### ORM Database    : Sequelize
-##### Authentication  : Passport, JWT
+##### Tools
+Express, Sequelize ,Passport, JWT
 
 ## Installation
 
