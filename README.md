@@ -1,4 +1,4 @@
-# Sample Test API
+# SampleTest API
 
 ## Description
 Sample Test API
@@ -7,12 +7,6 @@ Sample Test API
 Express, Sequelize ,Passport, JWT
 
 ## Installation
-
-#### Download Code | Clone the Repo
-
-```
-git clone repo
-```
 
 #### Install Node Modules
 ```
