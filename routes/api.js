@@ -8,12 +8,12 @@ const CarScheduleController = require('../controllers/car-schedule.controller');
 const passport = require('passport');
 const path = require('path');
 
-require('./../middleware/passport')(passport)
+require('../middleware/passport')(passport)
 
-//Open Access
+//endpoint
 router.post('/auth', UserController.login);
-router.get('/car-listing', CarController.getAll);
-router.get('/car-schedules/:carId', CarScheduleController.getByCar);
+router.get('/car-listing', passport.authenticate('jwt', {session:false}), CarController.getAll);
+router.get('/car-schedules/:carId', passport.authenticate('jwt', {session:false}), CarScheduleController.getByCar);
 
 
 //User route

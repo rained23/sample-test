@@ -27,6 +27,10 @@ module.exports = {
       password: {
           type: Sequelize.STRING        
       },
+      remember_token: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
