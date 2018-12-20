@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     underscored: true
   });
   CarSchedule.associate = function(models) {
-    // this.Car = this.belongsTo(models.Car);
+    this.Car = this.belongsTo(models.Car);
   };
 
   return CarSchedule;

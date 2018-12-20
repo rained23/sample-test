@@ -5,9 +5,18 @@ const { to, resError, resSuccess } = require('../services/utility');
 const create = async function(req, res){
     let err, car;
     let user = req.user;
-
     let car_info = req.body;
+    let tags = [];
 
+    [err, tags] = await to(user.getTags());
+    
+    beta = tags.find(o => o.name === "beta-tester");
+    if(beta)
+    {
+        console.log('yes a beta tester');
+    }
+    return resSuccess(res, beta, 201);
+    return 1;
 
     [err, car] = await to(Car.create(car_info));
     if(err) return resError(res, err, 422);

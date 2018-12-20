@@ -20,8 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Model.associate = function(models){
-        // this.Companies = this.belongsToMany(models.Company, {through: 'UserCompany'});
-        // this.Cars = this.hasMany(models.Car);
+        this.Tags = this.belongsToMany(models.Tag, {through: 'tag_user', timestamps: false});        
     };
 
 

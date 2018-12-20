@@ -1,23 +1,23 @@
-const { CarSchedule }  = require('../models');
+const { Car, CarSchedule }  = require('../models');
 const { to, resError, resSuccess } = require('../services/utility');
 
 
 const create = async function(req, res){
-    let err, car, carSchedule;
-    // let user = req.user;
+    let err, car, carSchedule;    
     let data = req.body;
 
     [err, car] = await to(Car.findById(data.car_id));
     if(err) return resError(res, err, 422);
     if(!car) return resError(res,'Error occured trying to book the car',422);
     
-    [err, carSchedule] = await to(CarSchedule.create(car_info));
+    [err, carSchedule] = await to(CarSchedule.create(data));
     if(err) return resError(res, err, 422);
 
-    [err, carSchedule] = await to(carSchedule.setCar(car));
-    if(err) return resError(res, err, 422);
+    // [err, carSchedule] = await to(carSchedule.setCar(car));
+    // if(err) return resError(res, err, 422);
+    
 
-    return resSuccess(res, {carSchedule:carSchedule}, 201);
+    return resSuccess(res, {carSchedule:carSchedule});
 }
 module.exports.create = create;
 

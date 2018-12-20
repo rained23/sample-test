@@ -14,6 +14,7 @@ require('../middleware/passport')(passport)
 router.post('/auth', UserController.login);
 router.get('/car-listing', passport.authenticate('jwt', {session:false}), CarController.getAll);
 router.get('/car-schedules/:carId', passport.authenticate('jwt', {session:false}), CarScheduleController.getByCar);
+router.post('/car-schedules', passport.authenticate('jwt', {session:false}), CarScheduleController.create);
 
 
 //User route
